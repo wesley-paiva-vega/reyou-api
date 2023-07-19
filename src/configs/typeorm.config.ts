@@ -8,5 +8,6 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   password: 'postgres',
   database: 'basegeografica',
   entities: [__dirname + '/../**/*.entity.{js,ts}'],
-  synchronize: true,
+  migrations: [`${__dirname}/migration/{.ts,*.js}`],
+  migrationsRun: true,
 };
