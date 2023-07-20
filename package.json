@@ -21,7 +21,7 @@
     "docker:run": "docker run -d --rm -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=reyou_database --name reyou_container postgres",
     "docker:stop": "docker stop reyou_container",
     "docker:restart": "yarn docker:stop ;yarn docker:run",
-    "typeorm": "typeorm-ts-node-commonjs -d ./src/dataSource", 
+    "typeorm": "typeorm-ts-node-commonjs -d ./src/dataSource",
     "migration:generate": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:generate -n src/migrations",
     "migration:up": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -n src/migrations",
     "migration:down": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:revert -d src/migrations"
@@ -31,6 +31,7 @@
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/typeorm": "^10.0.0",
+    "class-validator": "^0.14.0",
     "pg": "^8.11.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
