@@ -2,8 +2,8 @@ import { Controller, Get } from '@nestjs/common';
 
 @Controller('users')
 export class UserController {
-  @Get()
+  @Get('list')
   findAll(): string {
-    return 'method post at users';
+    return 'get all the fucking list';
   }
 }
