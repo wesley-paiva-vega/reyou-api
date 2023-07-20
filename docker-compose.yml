@@ -2,11 +2,9 @@ services:
   postgres:
     image: postgres
     restart: always
-    volumes:
-      - ./01-basegeografica.sql:/docker-entrypoint-initdb.d/01-basegeografica.sql
-      - ./02-basegeografica.sql:/docker-entrypoint-initdb.d/02-basegeografica.sql
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - DATABASENAME=reyou_database
     ports:
       - "5441:5432"

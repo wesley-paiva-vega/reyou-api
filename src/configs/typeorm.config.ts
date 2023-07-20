@@ -3,11 +3,11 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 export const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'postgres',
   host: 'localhost',
-  port: 5441,
+  port: 5432,
   username: 'postgres',
   password: 'postgres',
-  database: 'basegeografica',
-  entities: [__dirname + '/../**/*.entity.{js,ts}'],
-  migrations: [`${__dirname}/migration/{.ts,*.js}`],
+  database: 'reyou_database',
+  entities: [`${__dirname}/entity/{.ts,*.js}`],
+  migrations: [`${__dirname}/migrations/{.ts,*.js}`],
   migrationsRun: true,
 };

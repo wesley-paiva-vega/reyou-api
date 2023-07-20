@@ -17,7 +17,10 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "docker:run": "docker run -d --rm -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=reyou_database --name reyou_container postgres",
+    "docker:stop": "docker stop reyou_container",
+    "docker:restart": "yarn docker:stop ;yarn docker:run"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
