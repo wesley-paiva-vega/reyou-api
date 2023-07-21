@@ -22,7 +22,7 @@
     "docker:stop": "docker stop reyou_container",
     "docker:restart": "yarn docker:stop ;yarn docker:run",
     "typeorm": "typeorm-ts-node-commonjs -d ./src/data-source",
-    "migration:generate": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:generate -d ./src/data-source",
+    "migration:generate": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:generate -n ./src/migrations",
     "migration:up": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -n src/migrations",
     "migration:down": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:revert -d src/migrations"
   },
