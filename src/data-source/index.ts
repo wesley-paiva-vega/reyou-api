@@ -7,8 +7,8 @@ const AppDataSource = new DataSource({
   username: 'postgres',
   password: 'postgres',
   database: 'reyou_database',
-  entities: ['user'],
-  migrations: [`src/migrations/{.ts,*.js}`],
+  entities: ['user', 'products'],
+  migrations: [`${__dirname}/migrations/{.ts,*.js}`],
   synchronize: true,
 });
 
