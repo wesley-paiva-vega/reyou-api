@@ -21,8 +21,8 @@
     "docker:run": "docker run -d --rm -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=reyou_database --name reyou_container postgres",
     "docker:stop": "docker stop reyou_container",
     "docker:restart": "yarn docker:stop ;yarn docker:run",
-    "typeorm": "typeorm-ts-node-commonjs -d ./src/dataSource",
-    "migration:generate": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:generate -n src/migrations",
+    "typeorm": "typeorm-ts-node-commonjs -d ./src/data-source",
+    "migration:generate": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:generate -d ./src/data-source",
     "migration:up": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -n src/migrations",
     "migration:down": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:revert -d src/migrations"
   },

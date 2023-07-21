@@ -3,6 +3,7 @@ import { APP_FILTER } from '@nestjs/core';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
+import { ProductsModule } from './products/products.module';
 
 
 @Module({
@@ -26,7 +27,8 @@ import { UsersModule } from './users/users.module';
         };
       },
     }),
-    UsersModule
+    UsersModule,
+    ProductsModule
   ],
   controllers: [],
   providers: [],
