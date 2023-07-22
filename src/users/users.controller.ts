@@ -1,8 +1,9 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, HttpStatus } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { error } from 'console';
+import { HttpResponses } from 'src/utils/http-responses';
 
 @Controller('users')
 export class UsersController {
@@ -34,11 +35,16 @@ export class UsersController {
     return this.usersService.update(+id, updateUserDto);
   }
 
-  @Delete(':id')  
+  @Delete(':id')
   async remove(@Param('id') id: string) {
+
     const deleteUser = await this.usersService.remove(id);
 
-    console.log(deleteUser);
-    
+    if (deleteUser.affected && deleteUser.affected > 0) {
+      return HttpResponses( HttpStatus.CREATED, 'Usuário Criado com sucesso' );
+    } else {
+      return HttpResponses( HttpStatus.NOT_FOUND,  'Não foi possível deletar este usuário' );
+    }
   }
+
 }
