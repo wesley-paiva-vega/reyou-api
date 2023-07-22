@@ -15,14 +15,14 @@ import { ProductsModule } from './products/products.module';
       useFactory: async () => {
         return {
           type: 'postgres',
-          host: 'localhost',
-          port: 5432,
-          username: 'postgres',
-          password: 'postgres',
-          database: 'reyou_database',
+          host: process.env.DB_HOST,
+          port: parseInt(process.env.DB_PORT),
+          username: process.env.DB_USER,
+          password: process.env.DB_PASSWORD,
+          database: process.env.DB_DATABASE,
           logging: false,
           synchronize: false,
-          /* entities: entities, */
+          entities: [`${__dirname}/entities/{.ts,*.js}`],
           autoLoadEntities: true,
         };
       },
