@@ -2,8 +2,8 @@ import { Column, Entity, PrimaryGeneratedColumn, Generated } from "typeorm";
 
 @Entity('user_')
 export class User {
-    @PrimaryGeneratedColumn('increment')
-    id: number;
+    @Column({ primary: true, generated: 'uuid' })
+    id: string;
 
     @Column()
     name: string;
