@@ -34,8 +34,11 @@ export class UsersController {
     return this.usersService.update(+id, updateUserDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.usersService.remove(+id);
+  @Delete(':id')  
+  async remove(@Param('id') id: string) {
+    const deleteUser = await this.usersService.remove(id);
+
+    console.log(deleteUser);
+    
   }
 }

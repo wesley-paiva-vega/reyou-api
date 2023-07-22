@@ -2,7 +2,9 @@ import { Column, Entity, PrimaryGeneratedColumn, Generated } from "typeorm";
 
 @Entity('user_')
 export class User {
-    @Column({ primary: true, generated: 'uuid' })
+/*     @Column({ primary: true, generated: 'uuid' })
+    id: string; */
+    @PrimaryGeneratedColumn('uuid')
     id: string;
 
     @Column()
