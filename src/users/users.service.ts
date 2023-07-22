@@ -1,4 +1,4 @@
-import {  HttpException, Injectable } from '@nestjs/common';
+import {  HttpException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { Repository } from 'typeorm';
@@ -17,7 +17,13 @@ export class UsersService {
   }
 
   async findAll() {
-    return await this.userRepository.find();
+    const users = await this.userRepository.find();
+    
+    if(users.length === 0){
+      throw new NotFoundException('Não há usuários cadastrados')
+    }else {
+      return users;
+    }
   }
 
   findOne(id: number) {
