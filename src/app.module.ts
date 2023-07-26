@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { APP_FILTER } from '@nestjs/core';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
@@ -24,6 +23,7 @@ import { ProductsModule } from './products/products.module';
           synchronize: false,
           entities: [`${__dirname}/entities/{.ts,*.js}`],
           autoLoadEntities: true,
+          logger: 'advanced-console',
         };
       },
     }),

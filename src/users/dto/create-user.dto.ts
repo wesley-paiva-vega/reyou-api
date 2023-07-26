@@ -2,5 +2,6 @@ export class CreateUserDto {
     id: string;
     name: string;
     email: string;
-    uuid: string;
+    cpf: string;
+    rg: string;
 }
